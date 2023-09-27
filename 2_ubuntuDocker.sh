@@ -68,7 +68,9 @@ nvm install node
 # пакеты для программирования
 sudo apt update
 yes | sudo apt install code gh mc tmux zsh mosh wget make yarn apt-transport-https ca-certificates net-tools docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ python3 python3-pip -y 
-echo "node установлен версии - $node_versiom"
+
+echo "--------------------------------------------------------------"
+echo "node установлен версии - $node_version"
 echo "nvm установлен версии - $latest_version"
 echo "python установлен версии - $python_version"
 echo "--------------------------------------------------------------"

@@ -48,7 +48,7 @@ sudo apt update -y
 sudo apt install code nodejs npm gcc python3-tk python3-pip pythonpy default-jdk -y 
 sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing -y
 sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent -y
-sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw -y
+sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift -y
 
 # Проверяем, установлен ли Google Chrome
 if ! dpkg -l | grep -q "google-chrome-stable"; then

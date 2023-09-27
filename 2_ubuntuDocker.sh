@@ -59,8 +59,6 @@ echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.
 # устанавливаем всё что нужно для работы
 # nvm + node
 latest_version=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep -oP '"tag_name": "\K.*?(?=")')
-node_version=$(node -v)
-python_version=$(python3 --version 2>&1)
 curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$latest_version/install.sh" | bash
 source ~/.bashrc
 nvm install node
@@ -68,7 +66,8 @@ nvm install node
 # пакеты для программирования
 sudo apt update
 yes | sudo apt install code gh mc tmux zsh mosh wget make yarn apt-transport-https ca-certificates net-tools docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ python3 python3-pip -y 
-
+node_version=$(node -v)
+python_version=$(python3 --version 2>&1)
 echo "--------------------------------------------------------------"
 echo "node установлен версии - $node_version"
 echo "nvm установлен версии - $latest_version"

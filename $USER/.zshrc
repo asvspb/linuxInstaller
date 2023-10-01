@@ -77,12 +77,10 @@ alias upd="python3 /home/asv-spb/Documents/FSOget-data.py"
 alias svm="/home/asv-spb/Documents/startVMcorona.sh"
 alias gca="git add . && git commit -m'Auto-commit' && git push"
 alias cls="sudo apt autoremove -y && sudo apt clean && sudo journalctl --vacuum-time=2weeks"
-alias mu="make up"
-alias md="make down"
-alias mu="cd ~/Dev/coronachess && make up"
-alias md="cd ~/Dev/coronachess && make down"
-alias ms="cd ~/Dev/coronachess && make start"
-alias mr="cd ~/Dev/coronachess && make restart"
+alias cmu="cd ~/Dev/coronachess && make up"
+alias cmd="cd ~/Dev/coronachess && make down"
+alias cms="cd ~/Dev/coronachess && make start"
+alias cmr="cd ~/Dev/coronachess && make restart"
 alias smon="sudo btop"
 alias nmon="sudo iftop -i wlp34s0"
 alias myhelp="echo 'lan - показывает список IP в локальной сети'
@@ -94,10 +92,10 @@ echo 'chD - отмонтирование диска короначез'
 echo 'ip - показывает текущий IP'
 echo 'upd - проверяет очередь ФСО'
 echo 'svm - запускает виртуалку короны на вируталке и конектится с ней'
-echo 'mu - запускает виртуалку короны на локальном докере'
-echo 'md - торомзит виртуалку короны на локальном докере'
-echo 'mr - торомзит и запускает виртуалку короны на локальном докере'
-echo 'ms - заново компилирует корону на локальном докере'
+echo 'cmu - запускает виртуалку короны на локальном докере'
+echo 'cmd - торомзит виртуалку короны на локальном докере'
+echo 'cmr - торомзит и запускает виртуалку короны на локальном докере'
+echo 'cms - заново компилирует корону на локальном докере'
 echo 'smon - миниторинг процессов'
 echo 'nmon - миниторинг сетевых процессов'
 echo 'fzf - консольный поисковик'

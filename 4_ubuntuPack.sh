@@ -95,6 +95,10 @@ sudo chmod 0600 /etc/wireguard/wg0.conf
 sudo systemctl start wg-quick@wg0.service
 sudo ln -sf /usr/bin/resolvectl /usr/local/bin/resolvconf
 
+# сворачивание приложение по клику в доке
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+
 echo "--------------------------------------------------------------"
 echo "Установка завершена успешно"
 echo "--------------------------------------------------------------"

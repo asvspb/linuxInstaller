@@ -17,5 +17,5 @@
  - Для распаковки архива нужен -ssh
  - common.code-profile - профиль vscode
  - jetbraInstaller - лекарство Jetbrains
-
+ - в папке music три ссылки на радио
 

@@ -65,7 +65,7 @@ nvm install node
 
 # пакеты для программирования
 sudo apt update
-yes | sudo apt install code gh mc tmux zsh mosh wget make yarn apt-transport-https ca-certificates net-tools docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ python3 python3-pip -y 
+yes | sudo apt install code gh mc tmux zsh mosh wget make yarn apt-transport-https ca-certificates net-tools docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ python3 python3-pip python3.10-venv -y 
 node_version=$(node -v)
 python_version=$(python3 --version 2>&1)
 echo "--------------------------------------------------------------"

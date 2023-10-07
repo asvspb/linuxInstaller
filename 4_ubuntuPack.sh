@@ -6,7 +6,7 @@ echo " "
 echo "Установка системных утилит"
 echo "--------------------------------------------------------------"
 sudo apt update -y
-sudo apt-get install git gh mc tmux zsh mosh curl wget make yarn apt-transport-https gpg ca-certificates gnupg net-tools nala -y
+sudo apt-get install git gh mc tmux zsh mosh curl wget make yarn apt-transport-https gpg ca-certificates gnupg net-tools nala speedtest-cli -y
 
 echo " "
 echo "Установка репозиториев"

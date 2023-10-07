@@ -16,7 +16,7 @@ archives_dir="$(pwd)"
 mkdir -p ~/Programs
 
 # Находим архивы, содержащие ключевые слова
-find "$archives_dir" -type f -name "*pycharm*" -o -name "*PhpStorm*" -o -name "*Postman*" -o -name "*jetbra*" -o -name "*Aqua*" | while read -r archive; do
+find "$archives_dir" -type f -name "*pycharm*" -o -name "*PhpStorm*" -o -name "*Postman*" -o -name "*jetbra*" -o -name "*aqua*" | while read -r archive; do
     echo "Разархивирование архива: $archive"
     
     # Определяем тип архива с помощью команды 'file'

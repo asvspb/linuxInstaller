@@ -22,6 +22,9 @@ echo "--------------------------------------------------------------"
 sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 
+# speedtest
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+
 #gsmartcontrol
 echo 'deb http://download.opensuse.org/repositories/home:/alex_sh:/gsmartcontrol:/stable_latest/xUbuntu_21.10/ /' | sudo tee /etc/apt/sources.list.d/home:alex_sh:gsmartcontrol:stable_latest.list
 curl -fsSL https://download.opensuse.org/repositories/home:alex_sh:gsmartcontrol:stable_latest/xUbuntu_21.10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_alex_sh_gsmartcontrol_stable_latest.gpg > /dev/null
@@ -47,7 +50,7 @@ echo "--------------------------------------------------------------"
 sudo apt update -y
 sudo apt install code nodejs npm gcc python3-tk python3-pip pythonpy default-jdk -y 
 sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing -y
-sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent -y
+sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent speedtest -y
 sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift -y
 
 # Проверяем, установлен ли Google Chrome

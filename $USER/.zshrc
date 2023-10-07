@@ -81,7 +81,7 @@ alias cmu="cd ~/Dev/coronachess && make up"
 alias cmd="cd ~/Dev/coronachess && make down"
 alias cms="cd ~/Dev/coronachess && make start"
 alias cmr="cd ~/Dev/coronachess && make restart"
-alias speed="speedtest-cli --simple"
+alias stt="speedtest"
 alias smon="sudo btop"
 alias nmon="sudo iftop -i wlp34s0"
 alias myhelp="echo 'lan - показывает список IP в локальной сети'
@@ -99,7 +99,7 @@ echo 'cmr - торомзит и запускает виртуалку корон
 echo 'cms - заново компилирует корону на локальном докере'
 echo 'smon - миниторинг процессов'
 echo 'nmon - миниторинг сетевых процессов'
-echo 'speed - консольный замер скорости'
+echo 'stt - консольный замер скорости'
 echo 'fzf - консольный поисковик'
 echo 'tldr - упрощенный хелпер линукс'
 echo 'cls - очистка от мусора'

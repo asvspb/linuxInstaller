@@ -86,6 +86,7 @@ done < "$PACKAGE_FILE"
 
 sudo snap install obsidian --classic
 sudo snap install gitkraken --classic
+sudo snap install tribler-bittorrent --beta
 
 echo " "
 echo "Установка wireguard"

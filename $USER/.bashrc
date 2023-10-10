@@ -103,8 +103,8 @@ alias trm='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 #
 # MY ALIASES
 #
-alias lan="echo 192.168.1.{1..254}|xargs -n1 -P0 ping -c1|grep 'bytes from'"
-alias pinG="ping 8.8.8.8"
+alias lan="echo -e '\n---------\nlan test\n---------' && echo 192.168.1.{1..254}|xargs -n1 -P0 ping -c1|grep 'bytes from'"
+alias nettest="echo -e '\n---------\nping test\n---------' && ping -c 5 8.8.8.8 && lan && speedtest"
 alias ghA="gh auth login"
 alias ghX="gh repo create"
 alias vu="sudo wg-quick up wg0 && ip"
@@ -127,7 +127,7 @@ alias stt="speedtest"
 alias smon="sudo btop"
 alias nmon="sudo iftop -i wlp34s0"
 alias myhelp="echo 'lan - показывает список IP в локальной сети'
-echo 'pinG - пропинговка до гугла'
+echo 'nettest - проверка пинга, опрос локальной сети, замер скорости интернета'
 echo 'vu - включение vpn'
 echo 'vd - выключение vpn'
 echo 'chU - примонтирование диска короначез'

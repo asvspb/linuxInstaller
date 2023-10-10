@@ -14,6 +14,8 @@ echo "--------------------------------------------------------------"
 sudo add-apt-repository ppa:thopiekar/openrgb
 sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
 sudo add-apt-repository ppa:ubuntuhandbook1/rhythmbox
+sudo add-apt-repository -y ppa:deadsnakes/ppa
+
 
 #установка syncthing
 echo " "
@@ -48,10 +50,13 @@ echo " "
 echo "Установка системных программ, шаг 2"
 echo "--------------------------------------------------------------"
 sudo apt update -y
-sudo apt install code nodejs npm gcc python3-tk python3-pip pythonpy default-jdk -y 
+sudo apt install code nodejs npm gcc python3-tk python3-pip pythonpy python3.11 python3.12 default-jdk -y 
 sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing -y
 sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent speedtest -y
 sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift -y
+
+# закрепляем версию 3.11 питона в системе
+sudo ln -s /usr/bin/python3.11 /usr/bin/python
 
 # Проверяем, установлен ли Google Chrome
 if ! dpkg -l | grep -q "google-chrome-stable"; then

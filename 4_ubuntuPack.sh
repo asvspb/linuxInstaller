@@ -31,6 +31,9 @@ curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.
 echo 'deb http://download.opensuse.org/repositories/home:/alex_sh:/gsmartcontrol:/stable_latest/xUbuntu_21.10/ /' | sudo tee /etc/apt/sources.list.d/home:alex_sh:gsmartcontrol:stable_latest.list
 curl -fsSL https://download.opensuse.org/repositories/home:alex_sh:gsmartcontrol:stable_latest/xUbuntu_21.10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_alex_sh_gsmartcontrol_stable_latest.gpg > /dev/null
 
+#thorium
+wget https://dl.thorium.rocks/debian/dists/stable/thorium.list
+sudo mv thorium.list /etc/apt/sources.list.d/
 
 #vscode
 wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
@@ -51,7 +54,7 @@ echo "Установка системных программ, шаг 2"
 echo "--------------------------------------------------------------"
 sudo apt update -y
 sudo apt install code nodejs npm gcc python3-tk python3-pip pythonpy python3.11 python3.12 default-jdk -y 
-sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing -y
+sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing thorium-browser -y
 sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent speedtest -y
 sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift -y
 

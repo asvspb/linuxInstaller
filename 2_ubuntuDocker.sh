@@ -35,7 +35,7 @@ for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
 echo " "
 echo "Установка докер"
 echo "--------------------------------------------------------------"
-sudo apt install -y curl wget gpg gnupg 
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common wget gpg gnupg 
 
 # добавляем ключ для докера
 sudo rm -f /etc/apt/keyrings/docker.gpg
@@ -48,6 +48,7 @@ echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
 
 echo "                                                              "
 echo "Установка Vscode и всё что нужно для работы"
@@ -58,19 +59,24 @@ echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.
 
 # устанавливаем всё что нужно для работы
 # nvm + node
-latest_version=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep -oP '"tag_name": "\K.*?(?=")')
-curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$latest_version/install.sh" | bash
-source ~/.bashrc
+nvm_version=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep -oP '"tag_name": "\K.*?(?=")')
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh" | bash
+source ~/.nvm/nvm.sh 	# инициализация
+source ~/.bashrc 	# перезапуск оболочки
 nvm install node
+
 
 # пакеты для программирования
 sudo apt update
-yes | sudo apt install code gh mc tmux zsh mosh wget make yarn apt-transport-https ca-certificates net-tools docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ python3 python3-pip python3.10-venv -y 
+sudo apt install -y git gh tmux zsh mosh wget make yarn apt-transport-https ca-certificates net-tools gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ python3 python3-pip python3-venv -y
+
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 node_version=$(node -v)
 python_version=$(python3 --version 2>&1)
 echo "--------------------------------------------------------------"
 echo "node установлен версии - $node_version"
-echo "nvm установлен версии - $latest_version"
 echo "python установлен версии - $python_version"
 echo "--------------------------------------------------------------"
 

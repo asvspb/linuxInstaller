@@ -46,7 +46,7 @@ echo "--------------------------------------------------------------"
 wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
 echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
 
-# устанавливаемnvm + node
+# устанавливаем nvm + node
 nvm_version=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep -oP '"tag_name": "\K.*?(?=")')
 curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh" | bash
 source ~/.nvm/nvm.sh 	# инициализация
@@ -54,7 +54,7 @@ source ~/.bashrc 	# перезапуск оболочки
 npm install -g npm@latest
 nvm install node
 
-# установка python
+# установка python java
 sudo apt install code gcc python3 python3-pip python3-venv python3-tk pythonpy python3.10 python3.11 python3.12 default-jdk -y
 # закрепляем версию 3.11 питона в системе
 sudo ln -s /usr/bin/python3.11 /usr/bin/python

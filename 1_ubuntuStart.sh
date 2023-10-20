@@ -28,15 +28,15 @@ echo -e "Host gitlab.com\n   StrictHostKeyChecking no\n   UserKnownHostsFile=/de
 echo " "
 echo "Установка времени"
 echo "--------------------------------------------------------------"
-sudo timedatectl set-local-rtc 1 --adjust-system-clock 
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
 sudo timedatectl
 
 echo "                                                              "
 echo "Устанавливаем системные приложения"
 echo "--------------------------------------------------------------"
 sudo apt update -y
-sudo apt-get install git gh mc tmux zsh mosh curl wget ca-certificates net-tools -y
-sudo apt install gnome-shell-extensions gnome-tweaks ubuntu-restricted-extras software-properties-common -y
+sudo apt-get install git gh mc tmux zsh mosh curl wget ca-certificates net-tools make yarn apt-transport-https gpg gnupg -y
+sudo apt install gnome-shell-extensions gnome-tweaks ubuntu-restricted-extras -y
 
 echo "                                                              "
 echo "Установка telegram"
@@ -46,10 +46,8 @@ snap install telegram-desktop
 echo "                                                              "
 echo "Установка Chrome"
 echo "--------------------------------------------------------------"
-cd $HOME/Downloads
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&
-sudo dpkg -i google-chrome-stable_current_amd64.deb &&
-rm -f google-chrome-stable_current_amd64.deb
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
 sudo apt -f install
 

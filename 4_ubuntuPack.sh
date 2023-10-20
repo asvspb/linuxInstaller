@@ -10,7 +10,6 @@ sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
 sudo add-apt-repository ppa:ubuntuhandbook1/rhythmbox
 sudo add-apt-repository -y ppa:deadsnakes/ppa
 
-#установка syncthing
 echo " "
 echo "Установка ключей"
 echo "--------------------------------------------------------------"

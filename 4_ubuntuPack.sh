@@ -16,7 +16,6 @@ sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
 sudo add-apt-repository ppa:ubuntuhandbook1/rhythmbox
 sudo add-apt-repository -y ppa:deadsnakes/ppa
 
-
 #установка syncthing
 echo " "
 echo "Установка ключей"
@@ -35,42 +34,51 @@ curl -fsSL https://download.opensuse.org/repositories/home:alex_sh:gsmartcontrol
 wget https://dl.thorium.rocks/debian/dists/stable/thorium.list
 sudo mv thorium.list /etc/apt/sources.list.d/
 
-#vscode
-wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
-echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
-
 # установка syncthing
 type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null 
 
-# chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-
 echo " "
-echo "Установка системных программ, шаг 2"
+echo "Установка программ для программиирования"
 echo "--------------------------------------------------------------"
 sudo apt update -y
-npm install -g npm@latest
-sudo apt install code nodejs gcc python3-tk python3-pip pythonpy python3.11 python3.12 default-jdk -y 
-sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing thorium-browser -y
-sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent speedtest -y
-sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift -y
 
+echo "                                                              "
+echo "Установка Vscode"
+echo "--------------------------------------------------------------"
+
+#vscode
+wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
+echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
+
+# устанавливаемnvm + node
+nvm_version=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep -oP '"tag_name": "\K.*?(?=")')
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh" | bash
+source ~/.nvm/nvm.sh 	# инициализация
+source ~/.bashrc 	# перезапуск оболочки
+npm install -g npm@latest
+nvm install node
+
+# установка python
+sudo apt install code gcc python3 python3-pip python3-venv python3-tk pythonpy python3.10 python3.11 python3.12 default-jdk -y
 # закрепляем версию 3.11 питона в системе
 sudo ln -s /usr/bin/python3.11 /usr/bin/python
 
-# Проверяем, установлен ли Google Chrome
-if ! dpkg -l | grep -q "google-chrome-stable"; then
-    echo "Google Chrome не установлен. Устанавливаем..." &&
-    sudo apt install google-chrome-stable
-else
-    echo "Google Chrome уже установлен."
-fi
+node_version=$(node -v)
+python_version=$(python3 --version 2>&1)
+echo "--------------------------------------------------------------"
+echo "node установлен версии - $node_version"
+echo "python установлен версии - $python_version"
+echo "--------------------------------------------------------------"
 
-#запуск syncthing                     
+# установка системных пакетов
+sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing thorium-browser -y
+sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent speedtest speedtest-cli software-properties-common  -y
+sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift nala  -y
+
+#запуск syncthing
 echo " "
 echo "Запуск syncthing"
 echo "--------------------------------------------------------------"

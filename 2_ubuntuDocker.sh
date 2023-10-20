@@ -31,11 +31,10 @@ echo "--------------------------------------------------------------"
 # удаляем всё ненужное
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
-
 echo " "
 echo "Установка докер"
 echo "--------------------------------------------------------------"
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common wget gpg gnupg 
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common wget gpg gnupg
 
 # добавляем ключ для докера
 sudo rm -f /etc/apt/keyrings/docker.gpg
@@ -50,36 +49,12 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
 
-echo "                                                              "
-echo "Установка Vscode и всё что нужно для работы"
-echo "--------------------------------------------------------------"
-#vscode
-wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
-echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
-
-# устанавливаем всё что нужно для работы
-# nvm + node
-nvm_version=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep -oP '"tag_name": "\K.*?(?=")')
-curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh" | bash
-source ~/.nvm/nvm.sh 	# инициализация
-source ~/.bashrc 	# перезапуск оболочки
-nvm install node
-
-
-# пакеты для программирования
+# пакеты для докер
 sudo apt update
-sudo apt install -y git gh tmux zsh mosh wget make yarn apt-transport-https ca-certificates net-tools gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ python3 python3-pip python3-venv -y
+sudo apt install -y gawk m4 libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ -y
 
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-node_version=$(node -v)
-python_version=$(python3 --version 2>&1)
-echo "--------------------------------------------------------------"
-echo "node установлен версии - $node_version"
-echo "python установлен версии - $python_version"
-echo "--------------------------------------------------------------"
-
 
 echo " "
 echo "Установка докер-композ"

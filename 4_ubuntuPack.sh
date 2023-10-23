@@ -8,7 +8,8 @@ echo "--------------------------------------------------------------"
 sudo add-apt-repository ppa:thopiekar/openrgb
 sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
 sudo add-apt-repository ppa:ubuntuhandbook1/rhythmbox
-sudo add-apt-repository -y ppa:deadsnakes/ppa
+sudo add-apt-repository -y ppa:deadsnakes/ppa #python
+sudo add-apt-repository ppa:eugenesan/ppa #smartgit
 
 echo " "
 echo "Установка ключей"
@@ -69,7 +70,7 @@ echo "--------------------------------------------------------------"
 # установка системных пакетов
 sudo apt install btop iftop htop neofetch rpm wireguard jq guake copyq syncthing thorium-browser -y
 sudo apt install inxi cpu-x tldr fzf rhythmbox vlc alacarte qbittorrent speedtest speedtest-cli software-properties-common  -y
-sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift nala  -y
+sudo apt install grub-customizer gparted gsmartcontrol synaptic openrgb ufw timeshift nala smartgit -y
 
 #запуск syncthing
 echo " "
